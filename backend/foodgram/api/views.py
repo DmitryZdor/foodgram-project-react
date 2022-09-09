@@ -92,7 +92,7 @@ class RecipeViewSet(viewsets.ModelViewSet):
 class FollowUnfollowViewSet(UserViewSet):
     queryset = User.objects.all()
     serializer_class = FollowUnfollowSerializer
-    permission_classes = [permissions.IsAuthenticated,]
+    permission_classes = [permissions.IsAuthenticated, ]
 
     @action(
         detail=False,
