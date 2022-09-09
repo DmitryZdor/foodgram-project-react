@@ -1,4 +1,3 @@
-
 from django_filters.rest_framework import DjangoFilterBackend
 from django.db.models import Sum
 from django.http import HttpResponse
@@ -19,7 +18,6 @@ from users.models import Follow, User
 
 
 def add_or_remove_from_list(list_model, request, pk):
-
     user = request.user
     recipe = get_object_or_404(Recipe, id=pk)
     if request.method == 'POST':
@@ -33,10 +31,9 @@ def add_or_remove_from_list(list_model, request, pk):
 
 
 class RecipeViewSet(viewsets.ModelViewSet):
-
     queryset = Recipe.objects.all()
     permission_classes = [IsAuthor | ReadOnly]
-    filter_backends = (DjangoFilterBackend, )
+    filter_backends = (DjangoFilterBackend,)
     filterset_class = ResipeFilter
 
     def get_serializer_class(self):
@@ -93,10 +90,9 @@ class RecipeViewSet(viewsets.ModelViewSet):
 
 
 class FollowUnfollowViewSet(UserViewSet):
-
     queryset = User.objects.all()
     serializer_class = FollowUnfollowSerializer
-    permission_classes = [permissions.IsAuthenticated, ]
+    permission_classes = [permissions.IsAuthenticated,]
 
     @action(
         detail=False,
@@ -133,16 +129,14 @@ class FollowUnfollowViewSet(UserViewSet):
 
 
 class TagViewSet(viewsets.ReadOnlyModelViewSet):
-
     queryset = Tag.objects.all()
     serializer_class = TagSerializer
-    permission_classes = [ReadOnly,]
+    permission_classes = [ReadOnly, ]
 
 
 class IngredientViewSet(viewsets.ReadOnlyModelViewSet):
-
     queryset = Ingredient.objects.all()
     serializer_class = IngredientSerializer
     permission_classes = [ReadOnly, ]
-    filter_backends = (DjangoFilterBackend, )
+    filter_backends = (DjangoFilterBackend,)
     filterset_class = IngredientFilter

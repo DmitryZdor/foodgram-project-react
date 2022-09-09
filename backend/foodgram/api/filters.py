@@ -12,7 +12,7 @@ class IngredientFilter(django_filters.FilterSet):
 
     class Meta:
         model = Ingredient
-        fields = ['name']
+        fields = ('name',)
 
 
 class ResipeFilter(django_filters.FilterSet):
@@ -43,4 +43,4 @@ class ResipeFilter(django_filters.FilterSet):
 
     class Meta:
         model = Recipe
-        fields = ['tags', 'author', ]
+        fields = ('tags', 'author',)

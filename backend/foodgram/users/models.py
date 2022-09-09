@@ -3,10 +3,7 @@ from django.db import models
 
 
 class User(AbstractUser):
-    REQUIRED_FIELDS = ['email',
-                       'first_name',
-                       'last_name'
-                       ]
+    REQUIRED_FIELDS = ('email', 'first_name', 'last_name',)
 
     class Meta:
         verbose_name = 'Пользователь'
