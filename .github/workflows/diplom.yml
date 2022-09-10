@@ -70,12 +70,11 @@ jobs:
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            sudo docker pull zdors/foodgram_backend:latest
-            sudo docker pull zdors/foodgram_frontend
+#            sudo docker pull zdors/foodgram_backend:latest
+#            sudo docker pull zdors/foodgram_frontend
             sudo docker-compose stop
-            sudo docker-compose rm web
-            sudo docker compose rm foodgram_backend
-            sudo docker compose rm foodgram_frontend
+            sudo docker-compose rm foodgram_backend
+            sudo docker-compose rm foodgram_frontend
             rm .env
             touch .env
             echo DB_ENGINE=${{ secrets.DB_ENGINE }} >> .env
