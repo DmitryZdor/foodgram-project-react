@@ -52,9 +52,9 @@ jobs:
           tags: zdors/foodgram_backend:latest
 
       - name: Push to Docker Hub frontend
-          uses: docker/build-push-action@v2
-          with:
-            context: ./frontend
-            file: ./frontend/Dockerfile
-            push: true
-            tags: zdors/foodgram_frontend:latest
+        uses: docker/build-push-action@v2
+        with:
+          context: ./frontend
+          file: ./frontend/Dockerfile
+          push: true
+          tags: zdors/foodgram_frontend:latest
