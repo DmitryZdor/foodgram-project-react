@@ -7,7 +7,7 @@ services:
       - /var/lib/postgresql/data/
     env_file:
       - ./.env
-  web:
+  backend:
     build:
       context: ../backend/foodgram
       dockerfile: Dockerfile
@@ -27,7 +27,7 @@ services:
     volumes:
       - ../frontend/:/app/result_build/
     depends_on:
-      - web
+      - backend
   nginx:
     image: nginx:1.19.3
     ports:
