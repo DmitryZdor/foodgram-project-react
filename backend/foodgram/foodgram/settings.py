@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.getenv('SECRET_KEY', default='d$!y^mb)nzndo5mn(g+x8+=p-^91d&wkfb+l(_x_68-j8%ff!7')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1', '84.252.130.176', 'backend', 'localhost', '178.154.205.195']
 
