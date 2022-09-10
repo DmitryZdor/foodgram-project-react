@@ -17,8 +17,8 @@ class IngredientFilter(django_filters.FilterSet):
 
 class ResipeFilter(django_filters.FilterSet):
 
-    is_favorite = django_filters.BooleanFilter(
-        field_name='is_favorite',
+    is_favorited = django_filters.BooleanFilter(
+        field_name='is_favorited',
         method='favorite_filter',
         widget=BooleanWidget
     )
