@@ -108,6 +108,8 @@ class ReadRecipeSerializer(serializers.ModelSerializer):
             user.is_authenticated
             and ShoppingList.objects.filter(user=user, recipe=obj).exists()
         )
+
+
 class ShortRecipeSerializer(serializers.ModelSerializer):
 
     class Meta:
