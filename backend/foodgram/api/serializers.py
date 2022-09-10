@@ -25,10 +25,7 @@ class ModifiedDjoserUserSerializer(UserSerializer):
 
     def get_is_subscribed(self, obj):
         user = self.context.get('request').user
-        return (
-            user.is_authenticated
-            and Follow.objects.filter(follower=user, following=obj).exists()
-        )
+        return Follow.objects.filter(follower=user, following=obj).exists()
 
 
 class TagSerializer(serializers.ModelSerializer):
@@ -97,17 +94,11 @@ class ReadRecipeSerializer(serializers.ModelSerializer):
 
     def get_is_favorited(self, obj):
         user = self.context.get('request').user
-        return (
-            user.is_authenticated
-            and Favorite.objects.filter(user=user, recipe=obj).exists()
-        )
+        return Favorite.objects.filter(user=user, recipe=obj).exists()
 
     def get_is_in_shopping_cart(self, obj):
         user = self.context.get('request').user
-        return (
-            user.is_authenticated
-            and ShoppingList.objects.filter(user=user, recipe=obj).exists()
-        )
+        return ShoppingList.objects.filter(user=user, recipe=obj).exists()
 
 
 class ShortRecipeSerializer(serializers.ModelSerializer):
@@ -226,17 +217,11 @@ class WriteRecipeSerializer(serializers.ModelSerializer):
 
     def get_is_favorited(self, obj):
         user = self.context.get('request').user
-        return (
-            user.is_authenticated
-            and Favorite.objects.filter(user=user, recipe=obj).exists()
-        )
+        return Favorite.objects.filter(user=user, recipe=obj).exists()
 
     def get_is_in_shopping_cart(self, obj):
         user = self.context.get('request').user
-        return (
-            user.is_authenticated
-            and ShoppingList.objects.filter(user=user, recipe=obj).exists()
-        )
+        return ShoppingList.objects.filter(user=user, recipe=obj).exists()
 
     def create(self, validated_data):
         ingredients = validated_data.pop('recipeingredient_set')
