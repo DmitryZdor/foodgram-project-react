@@ -25,7 +25,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', default='d$!y^mb)nzndo5mn(g+x8+=p-^91d&wkfb
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', '84.252.130.176', 'backend', 'localhost', '178.154.205.195']
+ALLOWED_HOSTS = ['127.0.0.1', 'zdoragramm.sytes.net', 'backend', 'localhost', '178.154.205.195']
 
 AUTH_USER_MODEL = 'users.User'
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
